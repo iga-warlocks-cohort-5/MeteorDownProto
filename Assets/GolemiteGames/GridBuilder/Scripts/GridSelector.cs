@@ -48,7 +48,8 @@ public class GridSelector : MonoBehaviour
     {
         Vector3 scale = transform.localScale;
         scale.x *= selectedCellSize;
-        scale.z *= selectedCellSize;
+        //scale.z *= selectedCellSize;
+        scale.y *= selectedCellSize;
         transform.localScale = scale;
         currentPos = gridSelectorPos;
     }
@@ -119,7 +120,7 @@ public class GridSelector : MonoBehaviour
                     transform.position = gridSelectorPos;
                 }
 
-                
+
 
                 //Shows/Hides the selector tile depending if it is a placeable tile each time selector changes position
                 if(gridSelectorPos != currentPos)
@@ -135,7 +136,7 @@ public class GridSelector : MonoBehaviour
                     previewObj.SetActive(false);
                 }
                 meshRenderer.enabled = false;
-                
+
                 //Sets the current position to something else other than newPos forcing the Selector to recheck if valid tile
                 currentPos = Vector3.zero;
             }
@@ -148,7 +149,7 @@ public class GridSelector : MonoBehaviour
                 previewObj.SetActive(false);
             }
             meshRenderer.enabled = false;
-            
+
             //Sets the current position to something else other than newPos forcing the Selector to recheck if valid tile
             currentPos = Vector3.zero;
         }
@@ -168,7 +169,7 @@ public class GridSelector : MonoBehaviour
         {
             meshRenderer.enabled = true;
             ChangeObjMat(meshRenderer.gameObject, selectorMat);
-             
+
             if (previewObj)
             {
                 if(objPreviewMat)
@@ -284,7 +285,8 @@ public class GridSelector : MonoBehaviour
         float newZPos = (RoundTo((hit.point.z - hit.transform.position.z), selectedCellSize) - selectedCellSize / 2);
 
         gridSelectorPos = new Vector3(newXPos, hoverDistance, newZPos) + hit.transform.position;
-        placementCheckPosition = new Vector3(newXPos, 0, newZPos) + hit.transform.position;
+        //placementCheckPosition = new Vector3(newXPos, 0, newZPos) + hit.transform.position;
+        placementCheckPosition = new Vector3(newXPos, newYPos, 0) + hit.transform.position;
 
         float trimmedX = float.Parse(placementCheckPosition.x.ToString("F3"));
         float trimmedY = float.Parse(placementCheckPosition.y.ToString("F3"));
@@ -310,7 +312,7 @@ public class GridSelector : MonoBehaviour
         roundedNumber = Mathf.Ceil(value / multipleOf) * multipleOf;
         return roundedNumber;
     }
-    
+
     public void SetGameObjectToPlace(GameObject obj)
     {
         selectedGameObjectToPlace = obj;

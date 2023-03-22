@@ -61,7 +61,7 @@ public class GridSquare : MonoBehaviour
     Vector3 checkBoxSize;
 
     public float groundDistance = 0.05f;
-    
+
     //Prefab variables
     [SerializeField] GameObject gridCellPrefab;
     [SerializeField] GameObject secondGridCellPrefab;
@@ -81,7 +81,7 @@ public class GridSquare : MonoBehaviour
         gridObjContainer = new GameObject("GridObjContainer");
         gridObjContainer.transform.parent = transform;
 
-        //Keep this above collider creation as this causes the physics to detect itself        
+        //Keep this above collider creation as this causes the physics to detect itself
         if (gridType == GridType.SingleCell || gridType == GridType.Chequered)
         {
             cellContainer = new GameObject("CellContainer");
@@ -108,10 +108,14 @@ public class GridSquare : MonoBehaviour
 
         //Create four points from the centre of each cell
         float halfCell = cellSize * 0.5f;
-        Vector3 point1 = new Vector3(-halfCell, 0, halfCell);
-        Vector3 point2 = new Vector3(halfCell, 0, halfCell);
-        Vector3 point3 = new Vector3(halfCell, 0, -halfCell);
-        Vector3 point4 = new Vector3(-halfCell, 0, -halfCell);
+        //Vector3 point1 = new Vector3(-halfCell, 0, halfCell);
+        //Vector3 point2 = new Vector3(halfCell, 0, halfCell);
+        //Vector3 point3 = new Vector3(halfCell, 0, -halfCell);
+        //Vector3 point4 = new Vector3(-halfCell, 0, -halfCell);
+        Vector3 point1 = new Vector3(-halfCell, halfCell, 0);
+        Vector3 point2 = new Vector3(halfCell, halfCell, 0);
+        Vector3 point3 = new Vector3(halfCell, -halfCell, 0);
+        Vector3 point4 = new Vector3(-halfCell, -halfCell, 0);
 
         bool point1Clear = CheckPoint(point1);
         bool point2Clear = CheckPoint(point2);
@@ -135,11 +139,11 @@ public class GridSquare : MonoBehaviour
             {
                 boxClear = true;
             }
-            
+
         }
         bool CheckPoint(Vector3 cellPoint)
         {
-            if (Physics.Raycast(cells[i] + cellPoint, Vector3.down, out hit, groundDistance))
+            if (Physics.Raycast(cells[i] + cellPoint, Vector3.forward, out hit, groundDistance))
             {
                 if (hit.distance < groundDistance)
                 {
@@ -240,7 +244,8 @@ public class GridSquare : MonoBehaviour
     private Vector3 GetCheckBoxSize()
     {
         //Determines the size of the checkbox used in the physics calcs
-        checkBoxSize = new Vector3((cellSize * aboveCheckBoxSize) * 0.5f, aboveCheckBoxHeight, (cellSize * aboveCheckBoxSize) * 0.5f);
+        //checkBoxSize = new Vector3((cellSize * aboveCheckBoxSize) * 0.5f, aboveCheckBoxHeight, (cellSize * aboveCheckBoxSize) * 0.5f);
+        checkBoxSize = new Vector3((cellSize * aboveCheckBoxSize) * 0.5f, (cellSize * aboveCheckBoxSize) * 0.5f, aboveCheckBoxHeight);
         return checkBoxSize;
     }
     private void Update()
@@ -262,7 +267,8 @@ public class GridSquare : MonoBehaviour
         {
             if (i % (gridHeight + 1) != 0)
             {
-                cells[j] = gridPoints[i - 1] + new Vector3(cellSize, 0, cellSize) * 0.5f;
+                //cells[j] = gridPoints[i - 1] + new Vector3(cellSize, 0, cellSize) * 0.5f;
+                cells[j] = gridPoints[i - 1] + new Vector3(cellSize, cellSize, 0) * 0.5f;
 
                 float trimmedX = float.Parse(cells[j].x.ToString("F3"));
                 float trimmedY = float.Parse(cells[j].y.ToString("F3"));
@@ -278,7 +284,7 @@ public class GridSquare : MonoBehaviour
     {
         //Initialises each cell with a value of null to begin with, or in other words, its empty.
         gridCellsStatus = new Dictionary<Vector3, GameObject>();
-        
+
         for (int i = 0; i < cells.Length; i++)
         {
             gridCellsStatus.Add(cells[i], null);
@@ -366,7 +372,7 @@ public class GridSquare : MonoBehaviour
                 }
             }
 
-            
+
         }
         if(gridType == GridType.SingleCell)
         {
@@ -385,7 +391,7 @@ public class GridSquare : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     private void CreateSimpleGrid()
@@ -416,7 +422,7 @@ public class GridSquare : MonoBehaviour
         uvs[1] = new Vector2(0, 1);
         uvs[2] = new Vector2(1, 0);
         uvs[3] = new Vector2(1, 1);
-        
+
     }
 
     private void CreateMesh()
@@ -425,7 +431,7 @@ public class GridSquare : MonoBehaviour
         mesh.vertices = meshVertices;
         mesh.triangles = meshTriangles;
         mesh.name = "SimpleGridMesh";
-        
+
         CreateUVs();
         mesh.uv = uvs;
         UpdateMaterial();
@@ -436,14 +442,16 @@ public class GridSquare : MonoBehaviour
     private void SetColliderSize()
     {
         //Changes the size and position of the collider based on cellSize and the gridwidth
-        meshCollider.size = new Vector3(gridWidth * cellSize, colliderThickness, gridHeight * cellSize);
-        meshCollider.center = new Vector3((float)gridWidth * cellSize / 2, (colliderThickness / 2), (float)gridHeight * cellSize / 2);
+        //meshCollider.size = new Vector3(gridWidth * cellSize, colliderThickness, gridHeight * cellSize);
+        meshCollider.size = new Vector3(gridWidth * cellSize, gridHeight * cellSize, colliderThickness);
+        //meshCollider.center = new Vector3((float)gridWidth * cellSize / 2, (colliderThickness / 2), (float)gridHeight * cellSize / 2);
+        meshCollider.center = new Vector3((float)gridWidth * cellSize / 2, (float)gridHeight * cellSize / 2, (colliderThickness / 2));
     }
 
     private void UpdateMaterial()
     {
         rend.sharedMaterial.mainTextureScale = new Vector2((float)gridWidth / tileX, (float)gridHeight / tileY);
-        
+
     }
 
     private void CreateGrid()
@@ -454,13 +462,22 @@ public class GridSquare : MonoBehaviour
             gridPoints = new Vector3[(gridWidth + 1) * (gridHeight + 1)];
             for (int i = 0, x = 0; x <= gridWidth; x++)
             {
-                for (int z = 0; z <= gridHeight; z++)
+                //for (int z = 0; z <= gridHeight; z++)
+                //{
+                //    gridPoints[i] =
+                //    new Vector3(
+                //        transform.position.x + x * cellSize,
+                //        transform.position.y,
+                //        transform.position.z + z * cellSize);
+                //    i++;
+                //}
+                for (int y = 0; y <= gridHeight; y++)
                 {
-                    gridPoints[i] = 
+                    gridPoints[i] =
                     new Vector3(
                         transform.position.x + x * cellSize,
-                        transform.position.y, 
-                        transform.position.z + z * cellSize);
+                        transform.position.y + y * cellSize,
+                        transform.position.z);
                     i++;
                 }
             }
@@ -502,8 +519,8 @@ public class GridSquare : MonoBehaviour
             {
                 DrawAutoCellBlockingRays();
             }
-            
-        }   
+
+        }
         //Draws the grid gizmo
         if(!drawSimple)
         {
@@ -513,7 +530,7 @@ public class GridSquare : MonoBehaviour
         {
             DrawSimpleLines();
         }
-        
+
     }
 
     private void DrawSimpleLines()
@@ -527,18 +544,26 @@ public class GridSquare : MonoBehaviour
     private void DrawAutoCellBlockingRays()
     {
         float halfCell = cellSize * 0.5f;
-        Vector3 point1 = new Vector3(-halfCell, 0, halfCell);
-        Vector3 point2 = new Vector3(halfCell, 0, halfCell);
-        Vector3 point3 = new Vector3(halfCell, 0, -halfCell);
-        Vector3 point4 = new Vector3(-halfCell, 0, -halfCell);
+        //Vector3 point1 = new Vector3(-halfCell, 0, halfCell);
+        //Vector3 point2 = new Vector3(halfCell, 0, halfCell);
+        //Vector3 point3 = new Vector3(halfCell, 0, -halfCell);
+        //Vector3 point4 = new Vector3(-halfCell, 0, -halfCell);
+        Vector3 point1 = new Vector3(-halfCell, halfCell, 0);
+        Vector3 point2 = new Vector3(halfCell, halfCell, 0);
+        Vector3 point3 = new Vector3(halfCell, -halfCell, 0);
+        Vector3 point4 = new Vector3(-halfCell, -halfCell, 0);
         if (cells != null)
         {
             for (int i = 0; i < cells.Length; i++)
             {
-                Gizmos.DrawLine(cells[i] + point1, cells[i] + point1 + new Vector3(0, -groundDistance, 0));
-                Gizmos.DrawLine(cells[i] + point2, cells[i] + point2 + new Vector3(0, -groundDistance, 0));
-                Gizmos.DrawLine(cells[i] + point3, cells[i] + point3 + new Vector3(0, -groundDistance, 0));
-                Gizmos.DrawLine(cells[i] + point4, cells[i] + point4 + new Vector3(0, -groundDistance, 0));
+                //Gizmos.DrawLine(cells[i] + point1, cells[i] + point1 + new Vector3(0, -groundDistance, 0));
+                //Gizmos.DrawLine(cells[i] + point2, cells[i] + point2 + new Vector3(0, -groundDistance, 0));
+                //Gizmos.DrawLine(cells[i] + point3, cells[i] + point3 + new Vector3(0, -groundDistance, 0));
+                //Gizmos.DrawLine(cells[i] + point4, cells[i] + point4 + new Vector3(0, -groundDistance, 0));
+                Gizmos.DrawLine(cells[i] + point1, cells[i] + point1 + new Vector3(0, 0, -groundDistance));
+                Gizmos.DrawLine(cells[i] + point2, cells[i] + point2 + new Vector3(0, 0, -groundDistance));
+                Gizmos.DrawLine(cells[i] + point3, cells[i] + point3 + new Vector3(0, 0, -groundDistance));
+                Gizmos.DrawLine(cells[i] + point4, cells[i] + point4 + new Vector3(0, 0, -groundDistance));
             }
         }
     }
@@ -549,7 +574,8 @@ public class GridSquare : MonoBehaviour
         {
             for (int i = 0; i < cells.Length; i++)
             {
-                Gizmos.DrawWireCube(cells[i], new Vector3(cellSize * aboveCheckBoxSize, aboveCheckBoxHeight, cellSize * aboveCheckBoxSize));
+                //Gizmos.DrawWireCube(cells[i], new Vector3(cellSize * aboveCheckBoxSize, aboveCheckBoxHeight, cellSize * aboveCheckBoxSize));
+                Gizmos.DrawWireCube(cells[i], new Vector3(cellSize * aboveCheckBoxSize, cellSize * aboveCheckBoxSize, aboveCheckBoxHeight));
             }
         }
     }
@@ -620,5 +646,5 @@ public class GridSquare : MonoBehaviour
         }
         return gridCellsStatus;
     }
-    
+
 }
