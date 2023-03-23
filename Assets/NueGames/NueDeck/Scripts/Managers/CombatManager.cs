@@ -15,12 +15,13 @@ namespace NueGames.NueDeck.Scripts.Managers
         private CombatManager(){}
         public static CombatManager Instance { get; private set; }
 
-        [Header("References")] 
+        [Header("References")]
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
- 
-        
+        [SerializeField] private GridSquare grid;
+
+
         #region Cache
         public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
         public List<AllyBase> CurrentAlliesList { get; private set; }= new List<AllyBase>();
@@ -34,7 +35,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
 
         public EnemyEncounter CurrentEncounter { get; private set; }
-        
+
         public CombatStateType CurrentCombatStateType
         {
             get => _currentCombatStateType;
@@ -44,7 +45,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 _currentCombatStateType = value;
             }
         }
-        
+
         private CombatStateType _currentCombatStateType;
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
@@ -54,8 +55,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
         #endregion
-        
-        
+
+
         #region Setup
         private void Awake()
         {
@@ -63,7 +64,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             {
                 Destroy(gameObject);
                 return;
-            } 
+            }
             else
             {
                 Instance = this;
@@ -81,14 +82,14 @@ namespace NueGames.NueDeck.Scripts.Managers
             BuildEnemies();
             BuildAllies();
             backgroundContainer.OpenSelectedBackground();
-          
+
             CollectionManager.SetGameDeck();
-           
+
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.InformationCanvas.gameObject.SetActive(true);
             CurrentCombatStateType = CombatStateType.AllyTurn;
         }
-        
+
         private void ExecuteCombatState(CombatStateType targetStateType)
         {
             switch (targetStateType)
@@ -98,35 +99,35 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case CombatStateType.AllyTurn:
 
                     OnAllyTurnStarted?.Invoke();
-                    
+
                     if (CurrentMainAlly.CharacterStats.IsStunned)
                     {
                         EndTurn();
                         return;
                     }
-                    
+
                     GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
-                   
+
                     CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
-                    
+
                     GameManager.PersistentGameplayData.CanSelectCards = true;
-                    
+
                     break;
                 case CombatStateType.EnemyTurn:
 
                     OnEnemyTurnStarted?.Invoke();
-                    
+
                     CollectionManager.DiscardHand();
-                    
+
                     StartCoroutine(nameof(EnemyTurnRoutine));
-                    
+
                     GameManager.PersistentGameplayData.CanSelectCards = false;
-                    
+
                     break;
                 case CombatStateType.EndCombat:
-                    
+
                     GameManager.PersistentGameplayData.CanSelectCards = false;
-                    
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetStateType), targetStateType, null);
@@ -202,7 +203,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
         }
         #endregion
-        
+
         #region Private Methods
         private void BuildEnemies()
         {
@@ -210,13 +211,14 @@ namespace NueGames.NueDeck.Scripts.Managers
                 GameManager.PersistentGameplayData.CurrentStageId,
                 GameManager.PersistentGameplayData.CurrentEncounterId,
                 GameManager.PersistentGameplayData.IsFinalEncounter);
-            
+
             var enemyList = CurrentEncounter.EnemyList;
             for (var i = 0; i < enemyList.Count; i++)
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
                 clone.BuildCharacter();
                 CurrentEnemiesList.Add(clone);
+                grid.ChangeCellStatus(EnemyPosList.Count >= i ? EnemyPosList[i].position : EnemyPosList[0].position, clone.gameObject);
             }
         }
         private void BuildAllies()
@@ -231,9 +233,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         private void LoseCombat()
         {
             if (CurrentCombatStateType == CombatStateType.EndCombat) return;
-            
+
             CurrentCombatStateType = CombatStateType.EndCombat;
-            
+
             CollectionManager.DiscardHand();
             CollectionManager.DiscardPile.Clear();
             CollectionManager.DrawPile.Clear();
@@ -245,18 +247,18 @@ namespace NueGames.NueDeck.Scripts.Managers
         private void WinCombat()
         {
             if (CurrentCombatStateType == CombatStateType.EndCombat) return;
-          
+
             CurrentCombatStateType = CombatStateType.EndCombat;
-           
+
             foreach (var allyBase in CurrentAlliesList)
             {
                 GameManager.PersistentGameplayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
                     allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
             }
-            
+
             CollectionManager.ClearPiles();
-            
-           
+
+
             if (GameManager.PersistentGameplayData.IsFinalEncounter)
             {
                 UIManager.CombatCanvas.CombatWinPanel.SetActive(true);
@@ -271,10 +273,10 @@ namespace NueGames.NueDeck.Scripts.Managers
                 UIManager.RewardCanvas.BuildReward(RewardType.Gold);
                 UIManager.RewardCanvas.BuildReward(RewardType.Card);
             }
-           
+
         }
         #endregion
-        
+
         #region Routines
         private IEnumerator EnemyTurnRoutine()
         {
