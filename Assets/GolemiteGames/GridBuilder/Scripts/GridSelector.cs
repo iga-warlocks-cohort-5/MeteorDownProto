@@ -57,7 +57,7 @@ public class GridSelector : MonoBehaviour
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("TacticalGrid")))
         {
             //Get the center of each hovered cell
             GetCellPosition();
@@ -284,7 +284,8 @@ public class GridSelector : MonoBehaviour
         float newYPos = (RoundTo((hit.point.y - hit.transform.position.y), selectedCellSize) - selectedCellSize / 2);
         float newZPos = (RoundTo((hit.point.z - hit.transform.position.z), selectedCellSize) - selectedCellSize / 2);
 
-        gridSelectorPos = new Vector3(newXPos, hoverDistance, newZPos) + hit.transform.position;
+        //gridSelectorPos = new Vector3(newXPos, hoverDistance, newZPos) + hit.transform.position;
+        gridSelectorPos = new Vector3(newXPos, newYPos, hoverDistance) + hit.transform.position;
         //placementCheckPosition = new Vector3(newXPos, 0, newZPos) + hit.transform.position;
         placementCheckPosition = new Vector3(newXPos, newYPos, 0) + hit.transform.position;
 

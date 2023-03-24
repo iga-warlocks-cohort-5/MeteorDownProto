@@ -74,6 +74,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private void Start()
         {
+            grid.Initialize();
             StartCombat();
         }
 

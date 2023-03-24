@@ -71,9 +71,12 @@ public class GridSquare : MonoBehaviour
     [SerializeField] bool drawCellPositions = false;
     IEnumerator Start()
     {
-        CreateGrid();
-        CreateGridCells();
-        CreateGridStatus();
+        if (gridPoints == null)
+        {
+            CreateGrid();
+            CreateGridCells();
+            CreateGridStatus();
+        }
 
         yield return new WaitForFixedUpdate();
         yield return null;
@@ -99,6 +102,13 @@ public class GridSquare : MonoBehaviour
         //Keep this last
         meshCollider = gameObject.AddComponent<BoxCollider>();
         SetColliderSize();
+    }
+
+    public void Initialize()
+    {
+        CreateGrid();
+        CreateGridCells();
+        CreateGridStatus();
     }
 
     private void CreateAutoCellBlock(GameObject prefab, int i)
