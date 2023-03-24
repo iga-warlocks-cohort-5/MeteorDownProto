@@ -219,7 +219,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
                 clone.BuildCharacter();
                 CurrentEnemiesList.Add(clone);
-                grid.ChangeCellStatus(EnemyPosList.Count >= i ? EnemyPosList[i].position : EnemyPosList[0].position, clone.gameObject);
+                grid.ChangeCellStatus(EnemyPosList.Count >= i ? EnemyPosList[i].position : EnemyPosList[0].position,
+                    CurrentEnemiesList[CurrentEnemiesList.Count - 1].gameObject);
             }
         }
         private void BuildAllies()
@@ -229,6 +230,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
                 clone.BuildCharacter();
                 CurrentAlliesList.Add(clone);
+                grid.ChangeCellStatus(AllyPosList.Count >= i ? AllyPosList[i].position : AllyPosList[0].position,
+                    CurrentAlliesList[CurrentAlliesList.Count - 1].gameObject);
             }
         }
         private void LoseCombat()
