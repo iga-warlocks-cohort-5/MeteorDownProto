@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Characters;
+using NueGames.NueDeck.Scripts.Characters.Allies;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
@@ -107,7 +108,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                         return;
                     }
 
-                    GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
+                    //GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
+                    ExecuteUpkeep();
 
                     CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
 
@@ -132,6 +134,19 @@ namespace NueGames.NueDeck.Scripts.Managers
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetStateType), targetStateType, null);
+            }
+        }
+
+        private void ExecuteUpkeep()
+        {
+            foreach (AllyBase ally in GameManager.PersistentGameplayData.AllyList)
+            {
+                if (ally.GetType() == typeof(PowerStation))
+                {
+                    PowerStation powerStation = (PowerStation)ally;
+
+                    GameManager.PersistentGameplayData.CurrentMana += powerStation.Grid;
+                }
             }
         }
         #endregion

@@ -10,7 +10,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
     public class PersistentGameplayData
     {
         private readonly GameplayData _gameplayData;
-        
+
         [SerializeField] private int currentGold;
         [SerializeField] private int drawCount;
         [SerializeField] private int maxMana;
@@ -31,7 +31,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
 
             InitData();
         }
-        
+
         public void SetAllyHealthData(string id,int newCurrentHealth, int newMaxHealth)
         {
             var data = allyHealthDataDataList.Find(x => x.CharacterId == id);
@@ -48,12 +48,13 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             {
                 allyHealthDataDataList.Add(newData);
             }
-        } 
+        }
         private void InitData()
         {
             DrawCount = _gameplayData.DrawCount;
             MaxMana = _gameplayData.MaxMana;
-            CurrentMana = MaxMana;
+            //CurrentMana = MaxMana;
+            CurrentMana = 0;
             CanUseCards = true;
             CanSelectCards = true;
             IsRandomHand = _gameplayData.IsRandomHand;
@@ -144,7 +145,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             get => currentGold;
             set => currentGold = value;
         }
-        
+
         #endregion
     }
 }
