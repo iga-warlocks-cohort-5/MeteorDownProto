@@ -364,6 +364,173 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
+--- !u!1 &672498581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 672498583}
+  - component: {fileID: 672498582}
+  m_Layer: 0
+  m_Name: EarthGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &672498582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672498581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 710852632, guid: f192a729fc84ac64abbbc7e2e44bec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRadius: 0.5
+  nodePrefab: {fileID: 4750679680901905170, guid: 40c2c58a2fc584e41bbb99bd772e6262, type: 3}
+  createNodeObject: 0
+  nodes:
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 0
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 1
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 2
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 3
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 4
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 5
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 6
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 7
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 8
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 9
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 10
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 11
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 12
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 13
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 14
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 672498582}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 15
+  edgeNieghborsOnly: 0
+  generatedNodeRadius: 0.5
+  gridSizeX: 4
+  gridSizeY: 4
+  edgeNeighborsOnly: 0
+  generatedGridSizeX: 4
+  generatedGridSizeY: 4
+--- !u!4 &672498583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672498581}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1001 &688387166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -515,6 +682,761 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &994575060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994575062}
+  - component: {fileID: 994575061}
+  m_Layer: 0
+  m_Name: SpaceGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &994575061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994575060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 710852632, guid: f192a729fc84ac64abbbc7e2e44bec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRadius: 0.5
+  nodePrefab: {fileID: 0}
+  createNodeObject: 0
+  nodes:
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 0
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 1
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 2
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 3
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 4
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 5
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 6
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 7
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 8
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: -4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 9
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 10
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 11
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 12
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 13
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 14
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 15
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 16
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 17
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 18
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: -3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 19
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 20
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 21
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 22
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 23
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 24
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 25
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 26
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 27
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 28
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: -2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 29
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 30
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 31
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 32
+  - walkable: 0
+    localPosition: {x: -1.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 33
+  - walkable: 0
+    localPosition: {x: -0.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 34
+  - walkable: 0
+    localPosition: {x: 0.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 35
+  - walkable: 0
+    localPosition: {x: 1.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 36
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 37
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 38
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: -1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 39
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 40
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 41
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 42
+  - walkable: 0
+    localPosition: {x: -1.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 43
+  - walkable: 0
+    localPosition: {x: -0.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 44
+  - walkable: 0
+    localPosition: {x: 0.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 45
+  - walkable: 0
+    localPosition: {x: 1.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 46
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 47
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 48
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: -0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 49
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 50
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 51
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 52
+  - walkable: 0
+    localPosition: {x: -1.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 53
+  - walkable: 0
+    localPosition: {x: -0.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 54
+  - walkable: 0
+    localPosition: {x: 0.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 55
+  - walkable: 0
+    localPosition: {x: 1.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 56
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 57
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 58
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: 0.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 59
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 60
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 61
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 62
+  - walkable: 0
+    localPosition: {x: -1.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 63
+  - walkable: 0
+    localPosition: {x: -0.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 64
+  - walkable: 0
+    localPosition: {x: 0.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 65
+  - walkable: 0
+    localPosition: {x: 1.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 66
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 67
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 68
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: 1.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 69
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 70
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 71
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 72
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 73
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 74
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 75
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 76
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 77
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 78
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: 2.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 79
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 80
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 81
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 82
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 83
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 84
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 85
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 86
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 87
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 88
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: 3.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 89
+  - walkable: 1
+    localPosition: {x: -4.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 90
+  - walkable: 1
+    localPosition: {x: -3.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 91
+  - walkable: 1
+    localPosition: {x: -2.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 92
+  - walkable: 1
+    localPosition: {x: -1.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 93
+  - walkable: 1
+    localPosition: {x: -0.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 94
+  - walkable: 1
+    localPosition: {x: 0.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 95
+  - walkable: 1
+    localPosition: {x: 1.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 96
+  - walkable: 1
+    localPosition: {x: 2.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 97
+  - walkable: 1
+    localPosition: {x: 3.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 98
+  - walkable: 1
+    localPosition: {x: 4.5, y: 0, z: 4.5}
+    neighbors: 
+    grid: {fileID: 994575061}
+    worldObject: {fileID: 0}
+    vertices: []
+    index: 99
+  edgeNieghborsOnly: 0
+  generatedNodeRadius: 0.5
+  gridSizeX: 10
+  gridSizeY: 10
+  edgeNeighborsOnly: 0
+  generatedGridSizeX: 10
+  generatedGridSizeY: 10
+--- !u!4 &994575062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994575060}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!1001 &1388175338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -585,7 +1507,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4764659307043292944, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
       propertyPath: m_Name
-      value: Simple_PvZ
+      value: TacticalGridVisual
       objectReference: {fileID: 0}
     - target: {fileID: 4764659307043292944, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
       propertyPath: m_Layer
