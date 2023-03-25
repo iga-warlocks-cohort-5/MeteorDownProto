@@ -145,7 +145,10 @@ namespace NueGames.NueDeck.Scripts.Managers
                 {
                     PowerStation powerStation = (PowerStation)ally;
 
-                    GameManager.PersistentGameplayData.CurrentMana += powerStation.Grid;
+                    GameManager.PersistentGameplayData.CurrentMana = Math.Clamp(
+                        GameManager.PersistentGameplayData.CurrentMana + powerStation.Grid,
+                        0,
+                        GameManager.PersistentGameplayData.MaxMana);
                 }
             }
         }

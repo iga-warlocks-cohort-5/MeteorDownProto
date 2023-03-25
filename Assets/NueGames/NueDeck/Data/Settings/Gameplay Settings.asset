@@ -15,7 +15,7 @@ MonoBehaviour:
   drawCount: 5
   maxMana: 100
   initalAllyList:
-  - {fileID: 2835035829204582327, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+  - {fileID: 2835035829204582327, guid: b3b0af1d15fe86c45bf2488e8a4d5f89, type: 3}
   - {fileID: 7306626553078695062, guid: 4d6bc55ec47942e45ae8acc5bc219937, type: 3}
   - {fileID: 7306626553078695062, guid: 4d6bc55ec47942e45ae8acc5bc219937, type: 3}
   initalDeck: {fileID: 11400000, guid: 1f1db59d6dc1c1046b2ad72c336c615e, type: 2}

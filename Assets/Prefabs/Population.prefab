@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74410429768078268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.32, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049482477580095204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -118,10 +118,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835035829201671618}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.37, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 116970917414028300}
   m_RootOrder: 0
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bc483edc466a57748bda66f828c2f6b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc326b91712351e429e1c03073138cc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,11 +187,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2835035829204582326}
-  - component: {fileID: 7306626553078695062}
+  - component: {fileID: 2835035829204582327}
   - component: {fileID: 1757283783}
   - component: {fileID: 1757283782}
   m_Layer: 8
-  m_Name: PowerStation
+  m_Name: Population
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7306626553078695062
+--- !u!114 &2835035829204582327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,14 +226,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2835035829204582325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac696e4674e16144eb23527bb15f23fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c5449959a6647058155931d88dd8ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterType: 0
   textSpawnRoot: {fileID: 1754129541537614217}
   allyCanvas: {fileID: 7581544537521552487}
-  allyCharacterData: {fileID: 11400000, guid: 6a6e7e1fc294a1f4eacf68769f90aeef, type: 2}
-  _grid: 10
+  allyCharacterData: {fileID: 11400000, guid: 4c4856731f3188f409c7bef9115f1647, type: 2}
 --- !u!65 &1757283783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,10 +241,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835035829204582325}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 0.75, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1757283782
 Rigidbody:
@@ -407,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4383464602382946173, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 88.7
+      value: 11.9
       objectReference: {fileID: 0}
     - target: {fileID: 4383464602382946173, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -471,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6779519733593896437, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -59.8
+      value: -68.89
       objectReference: {fileID: 0}
     - target: {fileID: 7556913961963066689, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_Layer
@@ -495,11 +494,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914975654672300189, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 55.7
+      value: 59.8
       objectReference: {fileID: 0}
     - target: {fileID: 8914975654672300189, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.34
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 8914975654672300189, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_ConstrainProportionsScale
