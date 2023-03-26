@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
+using Grids2D;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Characters.Allies;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Utils.Background;
+//using TheoryTeam.PolymorphicGrid;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Managers
@@ -20,8 +23,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
-        [SerializeField] private GridSquare grid;
-
+        [SerializeField] private Grid2D tacticalGrid;
+        //[SerializeField] private GridSquare gridVisual;
+        //[SerializeField] private GridMaster tacticalGrid;
+        //[SerializeField] private PathFindingManager pathFinder;
 
         #region Cache
         public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
@@ -75,7 +80,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private void Start()
         {
-            grid.Initialize();
+            //gridVisual.Initialize();
             StartCombat();
         }
 
@@ -236,9 +241,19 @@ namespace NueGames.NueDeck.Scripts.Managers
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
                 clone.BuildCharacter();
+                clone.TacticalGrid = tacticalGrid;
                 CurrentEnemiesList.Add(clone);
-                grid.ChangeCellStatus(EnemyPosList.Count >= i ? EnemyPosList[i].position : EnemyPosList[0].position,
-                    CurrentEnemiesList[CurrentEnemiesList.Count - 1].gameObject);
+
+                tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
+                tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Alien);
+                //gridVisual.ChangeCellStatus(EnemyPosList.Count >= i ? EnemyPosList[i].position : EnemyPosList[0].position,
+                //    CurrentEnemiesList[CurrentEnemiesList.Count - 1].gameObject);
+
+                //if (clone.gameObject.tag == "MobileEnemy")
+                //{
+                //    clone.GetComponent<PathHolder>().Grid = tacticalGrid;
+                //    clone.GetComponent<PathHolder>().Finder = pathFinder;
+                //}
             }
         }
         private void BuildAllies()
@@ -248,8 +263,19 @@ namespace NueGames.NueDeck.Scripts.Managers
                 var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
                 clone.BuildCharacter();
                 CurrentAlliesList.Add(clone);
-                grid.ChangeCellStatus(AllyPosList.Count >= i ? AllyPosList[i].position : AllyPosList[0].position,
-                    CurrentAlliesList[CurrentAlliesList.Count - 1].gameObject);
+
+                tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
+
+                if (clone.GetType() == typeof(PowerStation))
+                {
+                    tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.PowerStation);
+                }
+                else if (clone.GetType() == typeof(PlayerExample))
+                {
+                    tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Population);
+                }
+                //gridVisual.ChangeCellStatus(AllyPosList.Count >= i ? AllyPosList[i].position : AllyPosList[0].position,
+                //    CurrentAlliesList[CurrentAlliesList.Count - 1].gameObject);
             }
         }
         private void LoseCombat()

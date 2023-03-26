@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &362173476 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7792241509306665534, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-  m_PrefabInstance: {fileID: 2081763809}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825faedb9a464a24f84ec7ebb3cc020e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &517155309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 536588906474977264, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 719666315382614374, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 719666315382614374, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2452178601341196022, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -191,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2452178601341196022, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4305065158385358273, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -203,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4305065158385358273, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4975396874289159475, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -215,12 +204,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4975396874289159475, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: grid
       value: 
-      objectReference: {fileID: 1431842207}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+      propertyPath: gridVisual
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+      propertyPath: pathFinder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+      propertyPath: tacticalGrid
+      value: 
+      objectReference: {fileID: 6541061958666491293}
     - target: {fileID: 7260925355206061662, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -231,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260925355206061662, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8536345782551362866, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_Sprite
@@ -291,303 +292,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
---- !u!1001 &562648548
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5797603629361181970, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_Name
-      value: GridSelector
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181970, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181971, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: objectPlacer
-      value: 
-      objectReference: {fileID: 362173476}
-    - target: {fileID: 5797603629361181972, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181972, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a3b75d6c6cdea1b4b8992084ff87a886, type: 2}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797603629361181974, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 02e365f50f0bd7747a4b9eb64b6f4e6c, type: 3}
---- !u!1 &672498581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 672498583}
-  - component: {fileID: 672498582}
-  m_Layer: 0
-  m_Name: EarthGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &672498582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672498581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 710852632, guid: f192a729fc84ac64abbbc7e2e44bec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRadius: 0.5
-  nodePrefab: {fileID: 4750679680901905170, guid: 40c2c58a2fc584e41bbb99bd772e6262, type: 3}
-  createNodeObject: 0
-  nodes:
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 0
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 1
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 2
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 3
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 4
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 5
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 6
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 7
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 8
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 9
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 10
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 11
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 12
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 13
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 14
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 672498582}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 15
-  edgeNieghborsOnly: 0
-  generatedNodeRadius: 0.5
-  gridSizeX: 4
-  gridSizeY: 4
-  edgeNeighborsOnly: 0
-  generatedGridSizeX: 4
-  generatedGridSizeY: 4
---- !u!4 &672498583
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672498581}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
---- !u!1001 &688387166
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 166.27357
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 25.988886
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 20.073048
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292400, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8113378936488292406, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
-      propertyPath: m_Name
-      value: ObjectRemover
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19e7a279b411e8a4aa8396dbda0558e2, type: 3}
 --- !u!1 &727680099
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,761 +386,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &994575060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 994575062}
-  - component: {fileID: 994575061}
-  m_Layer: 0
-  m_Name: SpaceGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &994575061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994575060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 710852632, guid: f192a729fc84ac64abbbc7e2e44bec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRadius: 0.5
-  nodePrefab: {fileID: 0}
-  createNodeObject: 0
-  nodes:
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 0
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 1
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 2
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 3
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 4
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 5
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 6
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 7
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 8
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: -4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 9
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 10
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 11
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 12
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 13
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 14
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 15
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 16
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 17
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 18
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: -3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 19
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 20
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 21
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 22
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 23
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 24
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 25
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 26
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 27
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 28
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: -2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 29
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 30
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 31
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 32
-  - walkable: 0
-    localPosition: {x: -1.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 33
-  - walkable: 0
-    localPosition: {x: -0.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 34
-  - walkable: 0
-    localPosition: {x: 0.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 35
-  - walkable: 0
-    localPosition: {x: 1.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 36
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 37
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 38
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: -1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 39
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 40
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 41
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 42
-  - walkable: 0
-    localPosition: {x: -1.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 43
-  - walkable: 0
-    localPosition: {x: -0.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 44
-  - walkable: 0
-    localPosition: {x: 0.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 45
-  - walkable: 0
-    localPosition: {x: 1.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 46
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 47
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 48
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: -0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 49
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 50
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 51
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 52
-  - walkable: 0
-    localPosition: {x: -1.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 53
-  - walkable: 0
-    localPosition: {x: -0.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 54
-  - walkable: 0
-    localPosition: {x: 0.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 55
-  - walkable: 0
-    localPosition: {x: 1.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 56
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 57
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 58
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: 0.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 59
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 60
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 61
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 62
-  - walkable: 0
-    localPosition: {x: -1.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 63
-  - walkable: 0
-    localPosition: {x: -0.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 64
-  - walkable: 0
-    localPosition: {x: 0.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 65
-  - walkable: 0
-    localPosition: {x: 1.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 66
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 67
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 68
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: 1.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 69
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 70
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 71
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 72
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 73
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 74
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 75
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 76
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 77
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 78
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: 2.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 79
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 80
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 81
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 82
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 83
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 84
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 85
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 86
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 87
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 88
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: 3.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 89
-  - walkable: 1
-    localPosition: {x: -4.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 90
-  - walkable: 1
-    localPosition: {x: -3.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 91
-  - walkable: 1
-    localPosition: {x: -2.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 92
-  - walkable: 1
-    localPosition: {x: -1.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 93
-  - walkable: 1
-    localPosition: {x: -0.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 94
-  - walkable: 1
-    localPosition: {x: 0.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 95
-  - walkable: 1
-    localPosition: {x: 1.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 96
-  - walkable: 1
-    localPosition: {x: 2.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 97
-  - walkable: 1
-    localPosition: {x: 3.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 98
-  - walkable: 1
-    localPosition: {x: 4.5, y: 0, z: 4.5}
-    neighbors: 
-    grid: {fileID: 994575061}
-    worldObject: {fileID: 0}
-    vertices: []
-    index: 99
-  edgeNieghborsOnly: 0
-  generatedNodeRadius: 0.5
-  gridSizeX: 10
-  gridSizeY: 10
-  edgeNeighborsOnly: 0
-  generatedGridSizeX: 10
-  generatedGridSizeY: 10
---- !u!4 &994575062
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994575060}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!1001 &1388175338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1498,114 +447,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
---- !u!1001 &1431842206
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4764659307043292944, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_Name
-      value: TacticalGridVisual
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292944, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292946, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c599cff973cf93f4a958dda0edff49aa, type: 2}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: tileX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: tileY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: cellSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: gridWidth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: drawSimple
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: gridHeight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: drawCellPositions
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: drawGridPositions
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764659307043292948, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
---- !u!114 &1431842207 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4764659307043292947, guid: 22032d744cba1104d9306a5a9af5aa14, type: 3}
-  m_PrefabInstance: {fileID: 1431842206}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96588a2d4ee0d1442b9d3e704876cf9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1541213104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1760,60 +601,219 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1001 &2081763809
-PrefabInstance:
+--- !u!21 &1968817188
+Material:
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6208328
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.23148426
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.26863578
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665529, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7792241509306665535, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
-      propertyPath: m_Name
-      value: ObjectPlacer
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c8c901c119dd09f4d9976a4d49bbd8f9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grids 2D System/Canvas Background Transparent
+  m_Shader: {fileID: 4800000, guid: ca57301ada7564b5886ae0372843d4ef, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &6541061958666491293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581247883710655937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a01c2198d58422e8c1c252ad33df90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDirty: 0
+  mouseIsOver: 0
+  _surfacesTypeOrder: 0
+  canvasTexture: {fileID: 2800000, guid: fc59beb081f7c3b419416d17e18a7986, type: 3}
+  _gridMask: {fileID: 0}
+  _gridTopology: 1
+  _renderQueue: 1
+  _sortingOrder: 0
+  _seed: 1
+  _regularHexagons: 0
+  _hexSize: 1
+  _gridRelaxation: 1
+  _gridCurvature: 0
+  _highlightMode: 2
+  _highlightFadeAmount: 0.5
+  _overlayMode: 1
+  _evenLayout: 0
+  _gridDepthOffset: -1
+  textures:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _respectOtherUI: 1
+  _mainCamera: {fileID: 1826299087}
+  _numCells: 40
+  _showCells: 1
+  _cellBorderColor: {r: 0.48659173, g: 0.49043074, b: 0.5294118, a: 1}
+  _cellHighlightColor: {r: 0, g: 0, b: 1, a: 0.7}
+  _cellHighlightNonVisible: 1
+  _cellRowCount: 10
+  _cellColumnCount: 10
+  _pathFindingHeuristicFormula: 5
+  _pathFindingMaxSteps: 2000
+  _pathFindingMaxCost: 200000
+  _pathFindingUseDiagonals: 1
+  _pathFindingHeavyDiagonalsCost: 1.4
+  territoriesTexture: {fileID: 0}
+  territoriesTextureNeutralColor: {r: 0, g: 0, b: 0, a: 0}
+  _enableTerritories: 0
+  _numTerritories: 2
+  _showTerritories: 0
+  _colorizeTerritories: 0
+  _colorizedTerritoriesAlpha: 0.71
+  _territoryHighlightColor: {r: 1, g: 0, b: 0, a: 0.7}
+  _territoryFrontierColor: {r: 0, g: 0, b: 0, a: 1}
+  _showTerritoriesOuterBorder: 1
+  _allowTerritoriesInsideTerritories: 0
+--- !u!23 &6558288960526288579
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581247883710655937}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 1968817188}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &6568339172951112625
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581247883710655937}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &6581247883710655937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6583978199430309105}
+  - component: {fileID: 6568339172951112625}
+  - component: {fileID: 6558288960526288579}
+  - component: {fileID: 6541061958666491293}
+  - component: {fileID: 6607863070883736557}
+  m_Layer: 5
+  m_Name: Grid2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6583978199430309105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581247883710655937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &6607863070883736557
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581247883710655937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}

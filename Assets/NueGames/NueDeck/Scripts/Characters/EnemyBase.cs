@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Grids2D;
 using NueGames.NueDeck.Scripts.Data.Characters;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.EnemyBehaviour;
@@ -21,6 +22,8 @@ namespace NueGames.NueDeck.Scripts.Characters
         public EnemyCharacterData EnemyCharacterData => enemyCharacterData;
         public EnemyCanvas EnemyCanvas => enemyCanvas;
         public SoundProfileData DeathSoundProfileData => deathSoundProfileData;
+
+        public Grid2D TacticalGrid;
 
         #region Setup
         public override void BuildCharacter()

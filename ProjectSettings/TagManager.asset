@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PowerStation
   - Population
+  - MobileEnemy
   layers:
   - Default
   - TransparentFX
