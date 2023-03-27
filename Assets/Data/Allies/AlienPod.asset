@@ -19,11 +19,18 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6242193572037212729, guid: 3f4d3607c2298c0459f23ec8f21ae85b, type: 3}
   followAbilityPattern: 1
   enemyAbilityList:
-  - name: Spawn Alien
+  - name: Spawn
     intention: {fileID: 11400000, guid: 6d2d1930cc85d4446b69aece5c795cdd, type: 2}
     hideActionValue: 1
     actionList:
     - actionType: 4
+      minActionValue: 1
+      maxActionValue: 1
+  - name: Wait
+    intention: {fileID: 11400000, guid: b4fe5626c9c34d94f9fb3e0b24e6516e, type: 2}
+    hideActionValue: 1
+    actionList:
+    - actionType: 5
       minActionValue: 1
       maxActionValue: 1
   - name: Wait

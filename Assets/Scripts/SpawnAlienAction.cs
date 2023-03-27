@@ -16,21 +16,26 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
             Grid2D tacticalGrid = (actionParameters.SelfCharacter as AlienPod).TacticalGrid;
             Cell podCell = tacticalGrid.CellGetAtPosition(podPosition, true);
 
-            if (tacticalGrid.CellGetAtPosition(podCell.column, podCell.row + 1).tag == 0)
+            if (tacticalGrid.CellGetAtPosition(podCell.column, podCell.row - 1).tag == 0)
             {
-                Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column, podCell.row + 1).center;
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column, podCell.row - 1).index);
+                //Vector3 spawnPos = tacticalGrid.CellGetPosition(podCell.column, podCell.row - 1);
+
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(tacticalGrid.CellGetAtPosition(podCell.column, podCell.row - 1).index);
 
                 CombatManager.QueueAlienSpawn(spawnPos);
             }
-            else if (tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row + 1).tag == 0)
+            else if (tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row - 1).tag == 0)
             {
-                Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row + 1).center;
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row - 1).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(podCell.column + 1, podCell.row - 1);
 
                 CombatManager.QueueAlienSpawn(spawnPos);
             }
             else if (tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).tag == 0)
             {
-                Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).center;
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(podCell.column + 1, podCell.row);
 
                 CombatManager.QueueAlienSpawn(spawnPos);
             }

@@ -115,7 +115,11 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
             }
 
             TacticalGrid.CellSetCanCross(startIndex, false);
-            TacticalGrid.CellSetCanCross(endIndex, false);
+
+            if (!target.IsDestroyed())
+            {
+                TacticalGrid.CellSetCanCross(endIndex, false);
+            }
         }
 
         protected IEnumerator MoveToTargetRoutine(WaitForEndOfFrame waitFrame, Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, float speed)

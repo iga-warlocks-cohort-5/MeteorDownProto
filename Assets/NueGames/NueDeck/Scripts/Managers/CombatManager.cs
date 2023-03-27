@@ -9,7 +9,6 @@ using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Utils.Background;
-//using TheoryTeam.PolymorphicGrid;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Managers
@@ -31,6 +30,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private bool alienSpawnQueued = false;
         private Vector3 alienSpawnPos = Vector3.zero;
+        private int alientTargetIndex = -1;
 
         #region Cache
         public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
@@ -86,6 +86,54 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             //gridVisual.Initialize();
             StartCombat();
+        }
+
+        private void Update()
+        {
+            foreach (Cell cell in tacticalGrid.cells)
+            {
+                //if (cell.canCross)
+                //{
+                //    tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 1.0f, 0.5f));
+                //}
+                //else
+                //{
+                //    tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 0.0f, 0.0f, 0.5f));
+                //}
+
+                //switch (cell.tag)
+                //{
+                //    case (int)CellTags.Alien:
+                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 1.0f, 0.0f, 0.25f));
+
+                //        break;
+
+                //    case (int)CellTags.AlienPod:
+                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 1.0f, 1.0f, 0.25f));
+
+                //        break;
+
+                //    case (int)CellTags.Population:
+                //        tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 1.0f, 1.0f, 0.25f));
+
+                //        break;
+
+                //    case (int)CellTags.PowerStation:
+                //        tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 1.0f, 0.0f, 0.25f));
+
+                //        break;
+
+                //    case (int)CellTags.Soldier:
+                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 1.0f, 0.25f));
+
+                //        break;
+
+                //    default:
+                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 0.0f, 0.0f));
+
+                //        break;
+                //}
+            }
         }
 
         public void StartCombat()
@@ -233,21 +281,19 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
         }
 
-        private void SpawnAlien(Vector3 position)
+        private void SpawnAlien()
         {
-            var clone = Instantiate(alienPrefab, position, Quaternion.identity);
-            clone.BuildCharacter();
+            var clone = Instantiate(alienPrefab, alienSpawnPos, Quaternion.identity);
             clone.TacticalGrid = tacticalGrid;
+            clone.BuildCharacter();
             CurrentEnemiesList.Add(clone);
-
-            tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
-            tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Alien);
         }
 
-        public void QueueAlienSpawn(Vector3 position)
+        public void QueueAlienSpawn(Vector3 spawnPos)
         {
             alienSpawnQueued = true;
-            alienSpawnPos = position;
+            alienSpawnPos = spawnPos;
+            //alientTargetIndex = targetIndex;
         }
 
         #endregion
@@ -342,7 +388,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             if (alienSpawnQueued)
             {
-                SpawnAlien(alienSpawnPos);
+                SpawnAlien();
                 alienSpawnQueued = false;
             }
 

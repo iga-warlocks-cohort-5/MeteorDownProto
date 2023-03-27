@@ -139,7 +139,11 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
             }
 
             TacticalGrid.CellSetCanCross(startIndex, false);
-            TacticalGrid.CellSetCanCross(endIndex, false);
+
+            if (!target.IsDestroyed())
+            {
+                TacticalGrid.CellSetCanCross(endIndex, false);
+            }
         }
     }
 }
