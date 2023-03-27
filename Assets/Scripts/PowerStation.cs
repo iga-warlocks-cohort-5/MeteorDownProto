@@ -17,6 +17,9 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
 
             cellTag = CellTags.PowerStation;
 
+            TacticalGrid.CellSetCanCross(TacticalGrid.CellGetAtPosition(transform.position, true).index, false);
+            TacticalGrid.CellSetTag(TacticalGrid.CellGetAtPosition(transform.position, true), (int)cellTag);
+
             if (UIManager != null)
                 CharacterStats.OnHealthChanged += UIManager.InformationCanvas.SetHealthText;
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);

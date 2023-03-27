@@ -14,25 +14,25 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
         {
             Vector3 podPosition = actionParameters.SelfCharacter.transform.position;
             Grid2D tacticalGrid = (actionParameters.SelfCharacter as AlienPod).TacticalGrid;
-            Cell podCell = tacticalGrid.CellGetAtPosition(podPosition);
+            Cell podCell = tacticalGrid.CellGetAtPosition(podPosition, true);
 
             if (tacticalGrid.CellGetAtPosition(podCell.column, podCell.row + 1).tag == 0)
             {
                 Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column, podCell.row + 1).center;
 
-                CombatManager.SpawnAlien(spawnPos);
-            }
-            else if (tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row + 1).tag == 0)
-            {
-                Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row + 1).center;
-
-                CombatManager.SpawnAlien(spawnPos);
+                CombatManager.QueueAlienSpawn(spawnPos);
             }
             else if (tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row + 1).tag == 0)
             {
                 Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row + 1).center;
 
-                CombatManager.SpawnAlien(spawnPos);
+                CombatManager.QueueAlienSpawn(spawnPos);
+            }
+            else if (tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).tag == 0)
+            {
+                Vector3 spawnPos = tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).center;
+
+                CombatManager.QueueAlienSpawn(spawnPos);
             }
         }
     }

@@ -29,6 +29,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         //[SerializeField] private GridMaster tacticalGrid;
         //[SerializeField] private PathFindingManager pathFinder;
 
+        private bool alienSpawnQueued = false;
+        private Vector3 alienSpawnPos = Vector3.zero;
+
         #region Cache
         public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
         public List<AllyBase> CurrentAlliesList { get; private set; }= new List<AllyBase>();
@@ -230,7 +233,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
         }
 
-        public void SpawnAlien(Vector3 position)
+        private void SpawnAlien(Vector3 position)
         {
             var clone = Instantiate(alienPrefab, position, Quaternion.identity);
             clone.BuildCharacter();
@@ -239,6 +242,12 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
             tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Alien);
+        }
+
+        public void QueueAlienSpawn(Vector3 position)
+        {
+            alienSpawnQueued = true;
+            alienSpawnPos = position;
         }
 
         #endregion
@@ -255,12 +264,9 @@ namespace NueGames.NueDeck.Scripts.Managers
             for (var i = 0; i < enemyList.Count; i++)
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
-                clone.BuildCharacter();
                 clone.TacticalGrid = tacticalGrid;
+                clone.BuildCharacter();
                 CurrentEnemiesList.Add(clone);
-
-                tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
-                tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Alien);
             }
         }
         private void BuildAllies()
@@ -268,12 +274,9 @@ namespace NueGames.NueDeck.Scripts.Managers
             for (var i = 0; i < GameManager.PersistentGameplayData.AllyList.Count; i++)
             {
                 var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
-                clone.BuildCharacter();
                 clone.TacticalGrid = tacticalGrid;
+                clone.BuildCharacter();
                 CurrentAlliesList.Add(clone);
-
-                tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
-                tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)clone.cellTag);
             }
         }
         private void LoseCombat()
@@ -335,6 +338,12 @@ namespace NueGames.NueDeck.Scripts.Managers
                 //yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return currentEnemy.ActionRoutine();
                 yield return waitDelay;
+            }
+
+            if (alienSpawnQueued)
+            {
+                SpawnAlien(alienSpawnPos);
+                alienSpawnQueued = false;
             }
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)

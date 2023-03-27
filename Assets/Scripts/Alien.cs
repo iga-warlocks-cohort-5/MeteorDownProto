@@ -22,6 +22,9 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
             base.BuildCharacter();
 
             cellTag = CellTags.Alien;
+
+            TacticalGrid.CellSetCanCross(TacticalGrid.CellGetAtPosition(transform.position, true).index, false);
+            TacticalGrid.CellSetTag(TacticalGrid.CellGetAtPosition(transform.position, true), (int)cellTag);
         }
 
         private void SelectTarget()

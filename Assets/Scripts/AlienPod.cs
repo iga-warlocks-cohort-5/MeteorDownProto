@@ -15,18 +15,17 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
 
             cellTag = CellTags.AlienPod;
 
-
+            TacticalGrid.CellSetCanCross(TacticalGrid.CellGetAtPosition(transform.position, true).index, false);
+            TacticalGrid.CellSetTag(TacticalGrid.CellGetAtPosition(transform.position, true), (int)cellTag);
         }
 
         protected override IEnumerator AttackRoutine(EnemyAbilityData targetAbility)
         {
-            //var waitFrame = new WaitForEndOfFrame();
+            var waitFrame = new WaitForEndOfFrame();
 
-            //if (CombatManager == null) yield break;
+            if (CombatManager == null) yield break;
 
-            //targetAbility.ActionList.ForEach(x => EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue, this, this)));
-
-            yield return null;
+            targetAbility.ActionList.ForEach(x => EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue, this, this)));
         }
     }
 }

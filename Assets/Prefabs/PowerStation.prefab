@@ -233,6 +233,7 @@ MonoBehaviour:
   textSpawnRoot: {fileID: 1754129541537614217}
   allyCanvas: {fileID: 7581544537521552487}
   allyCharacterData: {fileID: 11400000, guid: 6a6e7e1fc294a1f4eacf68769f90aeef, type: 2}
+  TacticalGrid: {fileID: 0}
   _grid: 10
 --- !u!65 &1757283783
 BoxCollider:
@@ -471,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6779519733593896437, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -59.8
+      value: -77
       objectReference: {fileID: 0}
     - target: {fileID: 7556913961963066689, guid: 06cd4b0ebbcba2f4896b474ce827c4bc, type: 3}
       propertyPath: m_Layer
