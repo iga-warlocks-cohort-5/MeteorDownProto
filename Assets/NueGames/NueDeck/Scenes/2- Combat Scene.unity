@@ -161,15 +161,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 491853204285499217, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 491853204285499217, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 491853204285499217, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 491853204285499217, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: tacticalGrid
       value: 
       objectReference: {fileID: 6541061958666491293}
+    - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+      propertyPath: soldierPrefab
+      value: 
+      objectReference: {fileID: 8292858017297981423, guid: 077b4581406c64a448fe529073c1c4ad, type: 3}
     - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: allyPosList.Array.size
       value: 4
@@ -745,11 +749,11 @@ MonoBehaviour:
   _mainCamera: {fileID: 1826299087}
   _numCells: 40
   _showCells: 1
-  _cellBorderColor: {r: 0.48659173, g: 0.49043074, b: 0.5294118, a: 1}
+  _cellBorderColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   _cellHighlightColor: {r: 0, g: 0, b: 1, a: 0.7}
   _cellHighlightNonVisible: 1
-  _cellRowCount: 10
-  _cellColumnCount: 10
+  _cellRowCount: 8
+  _cellColumnCount: 8
   _pathFindingHeuristicFormula: 5
   _pathFindingMaxSteps: 2000
   _pathFindingMaxCost: 200000
@@ -845,7 +849,7 @@ Transform:
   m_GameObject: {fileID: 6581247883710655937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   characterID: alien
   characterName: Alien
   characterDescription: Enemy Description
-  maxHealth: 2
+  maxHealth: 4
   enemyPrefab: {fileID: 6147620009304779719, guid: 1cd0f73f376fcac45b4c4a6951d8e0e3, type: 3}
   followAbilityPattern: 1
   enemyAbilityList:
@@ -25,4 +25,4 @@ MonoBehaviour:
     actionList:
     - actionType: 0
       minActionValue: 1
-      maxActionValue: 1
+      maxActionValue: 2

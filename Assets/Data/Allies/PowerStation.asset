@@ -15,4 +15,4 @@ MonoBehaviour:
   characterID: power_station
   characterName: Power Station
   characterDescription: 'Upkeep: +10 Grid'
-  maxHealth: 2
+  maxHealth: 6

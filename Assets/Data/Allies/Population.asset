@@ -15,4 +15,4 @@ MonoBehaviour:
   characterID: population
   characterName: Population
   characterDescription: Earth's population
-  maxHealth: 100
+  maxHealth: 10

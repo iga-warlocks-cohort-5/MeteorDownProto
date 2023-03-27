@@ -15,4 +15,4 @@ MonoBehaviour:
   characterID: soldier
   characterName: Soldier
   characterDescription: 'Upkeep: +10 Grid'
-  maxHealth: 2
+  maxHealth: 4

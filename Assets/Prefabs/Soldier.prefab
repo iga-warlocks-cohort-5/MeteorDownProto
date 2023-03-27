@@ -56,7 +56,7 @@ MonoBehaviour:
   allyCanvas: {fileID: 6236439706933542223}
   allyCharacterData: {fileID: 11400000, guid: f4f1b3c85d4371e46af52743795afe16, type: 2}
   TacticalGrid: {fileID: 0}
-  attackDamage: 1
+  attackDamage: 2
 --- !u!54 &735061151
 Rigidbody:
   m_ObjectHideFlags: 0

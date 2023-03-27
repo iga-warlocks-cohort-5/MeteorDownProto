@@ -24,6 +24,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private List<Transform> allyPosList;
         [SerializeField] private Grid2D tacticalGrid;
         [SerializeField] private Alien alienPrefab;
+        [SerializeField] private Soldier soldierPrefab;
         //[SerializeField] private GridSquare gridVisual;
         //[SerializeField] private GridMaster tacticalGrid;
         //[SerializeField] private PathFindingManager pathFinder;
@@ -45,6 +46,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
 
         public EnemyEncounter CurrentEncounter { get; private set; }
+
+        public Grid2D TacticalGrid => tacticalGrid;
 
         public CombatStateType CurrentCombatStateType
         {
@@ -294,6 +297,14 @@ namespace NueGames.NueDeck.Scripts.Managers
             alienSpawnQueued = true;
             alienSpawnPos = spawnPos;
             //alientTargetIndex = targetIndex;
+        }
+
+        public void SpawnSoldier(Vector3 spawnPos)
+        {
+            var clone = Instantiate(soldierPrefab, spawnPos, Quaternion.identity);
+            clone.TacticalGrid = tacticalGrid;
+            clone.BuildCharacter();
+            CurrentAlliesList.Add(clone);
         }
 
         #endregion
