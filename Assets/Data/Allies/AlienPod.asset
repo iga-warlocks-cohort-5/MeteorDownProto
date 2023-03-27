@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2612027158f847538279f7d8f10dff91, type: 3}
+  m_Name: AlienPod
+  m_EditorClassIdentifier: 
+  characterID: alien_pod
+  characterName: Alien Pod
+  characterDescription: Enemy Description
+  maxHealth: 3
+  enemyPrefab: {fileID: 6242193572037212729, guid: 3f4d3607c2298c0459f23ec8f21ae85b, type: 3}
+  followAbilityPattern: 1
+  enemyAbilityList:
+  - name: Spawn Alien
+    intention: {fileID: 11400000, guid: 6d2d1930cc85d4446b69aece5c795cdd, type: 2}
+    hideActionValue: 1
+    actionList:
+    - actionType: 4
+      minActionValue: 1
+      maxActionValue: 1
+  - name: Wait
+    intention: {fileID: 11400000, guid: b4fe5626c9c34d94f9fb3e0b24e6516e, type: 2}
+    hideActionValue: 1
+    actionList:
+    - actionType: 5
+      minActionValue: 1
+      maxActionValue: 1

@@ -219,6 +219,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+      propertyPath: alienPrefab
+      value: 
+      objectReference: {fileID: 6147620009304779719, guid: 1cd0f73f376fcac45b4c4a6951d8e0e3, type: 3}
+    - target: {fileID: 5531663734602138261, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: tacticalGrid
       value: 
       objectReference: {fileID: 6541061958666491293}

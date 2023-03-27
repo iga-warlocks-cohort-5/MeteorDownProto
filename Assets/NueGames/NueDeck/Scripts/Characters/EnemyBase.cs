@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts;
 using Grids2D;
 using NueGames.NueDeck.Scripts.Data.Characters;
 using NueGames.NueDeck.Scripts.Data.Containers;
@@ -24,6 +25,8 @@ namespace NueGames.NueDeck.Scripts.Characters
         public SoundProfileData DeathSoundProfileData => deathSoundProfileData;
 
         public Grid2D TacticalGrid;
+
+        public CellTags cellTag { get; protected set; }
 
         #region Setup
         public override void BuildCharacter()
@@ -108,7 +111,7 @@ namespace NueGames.NueDeck.Scripts.Characters
 
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, startPos, endPos, startRot, endRot, 5));
 
-            targetAbility.ActionList.ForEach(x=>EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue,target,this)));
+            targetAbility.ActionList.ForEach(x => EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue, target, this)));
 
             yield return StartCoroutine(MoveToTargetRoutine(waitFrame, endPos, startPos, endRot, startRot, 5));
         }

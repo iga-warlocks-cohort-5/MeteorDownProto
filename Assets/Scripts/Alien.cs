@@ -17,12 +17,11 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
     {
         private CharacterBase target = null;
 
-        private void Update()
+        public override void BuildCharacter()
         {
-            if (target == null || target.gameObject.IsDestroyed())
-            {
-                SelectTarget();
-            }
+            base.BuildCharacter();
+
+            cellTag = CellTags.Alien;
         }
 
         private void SelectTarget()
@@ -69,6 +68,8 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
             var waitFrame = new WaitForEndOfFrame();
 
             if (CombatManager == null) yield break;
+
+            SelectTarget();
 
             if (target == null) yield break;
 

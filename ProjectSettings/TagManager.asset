@@ -6,7 +6,9 @@ TagManager:
   tags:
   - PowerStation
   - Population
-  - MobileEnemy
+  - Soldier
+  - Alien
+  - AlienPod
   layers:
   - Default
   - TransparentFX

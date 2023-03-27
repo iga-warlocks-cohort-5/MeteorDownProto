@@ -1,18 +1,32 @@
+using Assets.Scripts;
+using NueGames.NueDeck.Scripts.Data.Characters;
+using NueGames.NueDeck.Scripts.EnemyBehaviour;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienPod : MonoBehaviour
+namespace NueGames.NueDeck.Scripts.Characters.Enemies
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AlienPod : EnemyBase
     {
-        
-    }
+        public override void BuildCharacter()
+        {
+            base.BuildCharacter();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            cellTag = CellTags.AlienPod;
+
+
+        }
+
+        protected override IEnumerator AttackRoutine(EnemyAbilityData targetAbility)
+        {
+            //var waitFrame = new WaitForEndOfFrame();
+
+            //if (CombatManager == null) yield break;
+
+            //targetAbility.ActionList.ForEach(x => EnemyActionProcessor.GetAction(x.ActionType).DoAction(new EnemyActionParameters(x.ActionValue, this, this)));
+
+            yield return null;
+        }
     }
 }

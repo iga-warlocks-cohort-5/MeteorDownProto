@@ -24,6 +24,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
         [SerializeField] private Grid2D tacticalGrid;
+        [SerializeField] private Alien alienPrefab;
         //[SerializeField] private GridSquare gridVisual;
         //[SerializeField] private GridMaster tacticalGrid;
         //[SerializeField] private PathFindingManager pathFinder;
@@ -117,8 +118,6 @@ namespace NueGames.NueDeck.Scripts.Managers
                     ExecuteUpkeep();
 
                     CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
-
-                    //StartCoroutine(nameof(AllyTurnRoutine));
 
                     GameManager.PersistentGameplayData.CanSelectCards = true;
 
@@ -230,6 +229,18 @@ namespace NueGames.NueDeck.Scripts.Managers
                     throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);
             }
         }
+
+        public void SpawnAlien(Vector3 position)
+        {
+            var clone = Instantiate(alienPrefab, position, Quaternion.identity);
+            clone.BuildCharacter();
+            clone.TacticalGrid = tacticalGrid;
+            CurrentEnemiesList.Add(clone);
+
+            tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
+            tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Alien);
+        }
+
         #endregion
 
         #region Private Methods
@@ -321,7 +332,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             foreach (var currentEnemy in CurrentEnemiesList)
             {
-                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
+                //yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
+                yield return currentEnemy.ActionRoutine();
                 yield return waitDelay;
             }
 

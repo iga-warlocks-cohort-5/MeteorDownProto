@@ -26,14 +26,6 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
         }
 
-        private void Update()
-        {
-            if (target == null || target.gameObject.IsDestroyed())
-            {
-                SelectTarget();
-            }
-        }
-
         private void SelectTarget()
         {
             foreach (CharacterBase enemy in CombatManager.CurrentEnemiesList)
@@ -45,6 +37,19 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
                     break;
                 }
             }
+
+            if (target == null)
+            {
+                foreach (CharacterBase enemy in CombatManager.CurrentEnemiesList)
+                {
+                    if (enemy.gameObject.tag == "AlienPod")
+                    {
+                        target = enemy;
+
+                        break;
+                    }
+                }
+            }
         }
 
         public override IEnumerator AttackRoutine()
@@ -52,6 +57,8 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
             var waitFrame = new WaitForEndOfFrame();
 
             if (CombatManager == null) yield break;
+
+            SelectTarget();
 
             if (target == null) yield break;
 
@@ -67,6 +74,12 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
             foreach (int index in adjacents)
             {
                 if (target.GetType() == typeof(Alien) && TacticalGrid.cells[index].tag == (int)CellTags.Alien)
+                {
+                    targetFound = true;
+
+                    break;
+                }
+                else if (target.GetType() == typeof(AlienPod) && TacticalGrid.cells[index].tag == (int)CellTags.AlienPod)
                 {
                     targetFound = true;
 
