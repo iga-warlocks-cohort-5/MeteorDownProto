@@ -118,6 +118,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                     CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
 
+                    //StartCoroutine(nameof(AllyTurnRoutine));
+
                     GameManager.PersistentGameplayData.CanSelectCards = true;
 
                     break;
@@ -162,7 +164,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         #region Public Methods
         public void EndTurn()
         {
-            CurrentCombatStateType = CombatStateType.EnemyTurn;
+            StartCoroutine(nameof(AllyTurnRoutine));
+
+            //CurrentCombatStateType = CombatStateType.EnemyTurn;
         }
         public void OnAllyDeath(AllyBase targetAlly)
         {
@@ -246,14 +250,6 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                 tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
                 tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Alien);
-                //gridVisual.ChangeCellStatus(EnemyPosList.Count >= i ? EnemyPosList[i].position : EnemyPosList[0].position,
-                //    CurrentEnemiesList[CurrentEnemiesList.Count - 1].gameObject);
-
-                //if (clone.gameObject.tag == "MobileEnemy")
-                //{
-                //    clone.GetComponent<PathHolder>().Grid = tacticalGrid;
-                //    clone.GetComponent<PathHolder>().Finder = pathFinder;
-                //}
             }
         }
         private void BuildAllies()
@@ -262,20 +258,11 @@ namespace NueGames.NueDeck.Scripts.Managers
             {
                 var clone = Instantiate(GameManager.PersistentGameplayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
                 clone.BuildCharacter();
+                clone.TacticalGrid = tacticalGrid;
                 CurrentAlliesList.Add(clone);
 
                 tacticalGrid.CellSetCanCross(tacticalGrid.CellGetAtPosition(clone.transform.position, true).index, false);
-
-                if (clone.GetType() == typeof(PowerStation))
-                {
-                    tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.PowerStation);
-                }
-                else if (clone.GetType() == typeof(PlayerExample))
-                {
-                    tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)CellTags.Population);
-                }
-                //gridVisual.ChangeCellStatus(AllyPosList.Count >= i ? AllyPosList[i].position : AllyPosList[0].position,
-                //    CurrentAlliesList[CurrentAlliesList.Count - 1].gameObject);
+                tacticalGrid.CellSetTag(tacticalGrid.CellGetAtPosition(clone.transform.position, true), (int)clone.cellTag);
             }
         }
         private void LoseCombat()
@@ -330,6 +317,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             var waitDelay = new WaitForSeconds(0.1f);
 
+            yield return new WaitForSeconds(0.3f);
+
             foreach (var currentEnemy in CurrentEnemiesList)
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
@@ -338,6 +327,20 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
                 CurrentCombatStateType = CombatStateType.AllyTurn;
+        }
+
+        private IEnumerator AllyTurnRoutine()
+        {
+            var waitDelay = new WaitForSeconds(0.1f);
+
+            foreach (var currentAlly in CurrentAlliesList)
+            {
+                yield return currentAlly.AttackRoutine();
+                yield return waitDelay;
+            }
+
+            if (CurrentCombatStateType != CombatStateType.EndCombat)
+                CurrentCombatStateType = CombatStateType.EnemyTurn;
         }
         #endregion
     }

@@ -7,6 +7,7 @@ using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -28,12 +29,24 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
         {
             foreach (CharacterBase ally in CombatManager.CurrentAlliesList)
             {
-                if (ally.gameObject.tag == "PowerStation")
+                if (ally.gameObject.tag == "Soldier")
                 {
                     target = ally;
-                    //GetComponent<PathHolder>().Target = target.transform;
 
                     break;
+                }
+            }
+
+            if (target == null)
+            {
+                foreach (CharacterBase ally in CombatManager.CurrentAlliesList)
+                {
+                    if (ally.gameObject.tag == "PowerStation")
+                    {
+                        target = ally;
+
+                        break;
+                    }
                 }
             }
 
@@ -44,7 +57,6 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
                     if (ally.gameObject.tag == "Population")
                     {
                         target = ally;
-                        //GetComponent<PathHolder>().Target = target.transform;
 
                         break;
                     }
@@ -58,14 +70,8 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
 
             if (CombatManager == null) yield break;
 
-            //var target = CombatManager.CurrentAlliesList.RandomItem();
-
             if (target == null) yield break;
 
-            //PathHolder path = GetComponent<PathHolder>();
-
-            //if (path.AllPathes.GetDistance(path.Grid.GetNode(transform.position), path.Grid.GetNode(target.transform.position)) == 1)
-            //{
             int startIndex = TacticalGrid.CellGetAtPosition(transform.position, true).index;
             int endIndex = TacticalGrid.CellGetAtPosition(target.transform.position, true).index;
 
@@ -77,13 +83,26 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
 
             foreach (int index in adjacents)
             {
-                if (target.GetType() == typeof(PowerStation) && TacticalGrid.cells[index].tag == (int)CellTags.PowerStation)
+                if (target.GetType() == typeof(Soldier) && TacticalGrid.cells[index].tag == (int)CellTags.Soldier)
                 {
                     targetFound = true;
 
                     break;
                 }
-                else if (target.GetType() == typeof(PlayerExample) && TacticalGrid.cells[index].tag == (int)CellTags.Population)
+                else if (target.GetType() == typeof(PowerStation) && TacticalGrid.cells[index].tag == (int)CellTags.PowerStation)
+                {
+                    targetFound = true;
+
+                    break;
+                }
+                else if (target.GetType() == typeof(Population) && TacticalGrid.cells[index].tag == (int)CellTags.Population)
+                {
+                    targetFound = true;
+
+                    break;
+                }
+
+                if ((int)(target as AllyBase).cellTag == TacticalGrid.cells[index].tag)
                 {
                     targetFound = true;
 
@@ -107,23 +126,16 @@ namespace NueGames.NueDeck.Scripts.Characters.Enemies
             }
             else
             {
-
-
                 List<int> path = TacticalGrid.FindPath(startIndex, endIndex);
 
                 TacticalGrid.MoveTo(gameObject, path[0], 5.0f);
+                TacticalGrid.CellSetTag(startIndex, 0);
+                TacticalGrid.CellSetTag(path[0], (int)CellTags.Alien);
+                startIndex = path[0];
             }
 
             TacticalGrid.CellSetCanCross(startIndex, false);
             TacticalGrid.CellSetCanCross(endIndex, false);
-
-
-            //}
-            //else
-            //{
-            //    Debug.Log("Distance: " + path.AllPathes.GetDistance(path.Grid.GetNode(transform.position), path.Grid.GetNode(target.transform.position)));
-            //    yield break;
-            //}
         }
     }
 }

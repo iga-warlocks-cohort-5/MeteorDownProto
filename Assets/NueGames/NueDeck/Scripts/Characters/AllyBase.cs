@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using Assets.Scripts;
+using Grids2D;
 using NueGames.NueDeck.Scripts.Data.Characters;
 using NueGames.NueDeck.Scripts.Interfaces;
 using NueGames.NueDeck.Scripts.Managers;
@@ -13,7 +16,11 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] private AllyCharacterData allyCharacterData;
         public AllyCanvas AllyCanvas => allyCanvas;
         public AllyCharacterData AllyCharacterData => allyCharacterData;
-        
+
+        public Grid2D TacticalGrid;
+
+        public CellTags cellTag { get; protected set; }
+
         public override void BuildCharacter()
         {
             base.BuildCharacter();
@@ -22,10 +29,10 @@ namespace NueGames.NueDeck.Scripts.Characters
 
             if (!GameManager)
                 throw new Exception("There is no GameManager");
-            
+
             var data = GameManager.PersistentGameplayData.AllyHealthDataList.Find(x =>
                 x.CharacterId == AllyCharacterData.CharacterID);
-            
+
             if (data != null)
             {
                 CharacterStats.CurrentHealth = data.CurrentHealth;
@@ -35,17 +42,21 @@ namespace NueGames.NueDeck.Scripts.Characters
             {
                 GameManager.PersistentGameplayData.SetAllyHealthData(AllyCharacterData.CharacterID,CharacterStats.CurrentHealth,CharacterStats.MaxHealth);
             }
-            
+
             CharacterStats.OnDeath += OnDeath;
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
-            
+
             if (CombatManager != null)
                 CombatManager.OnAllyTurnStarted += CharacterStats.TriggerAllStatus;
         }
-        
+
         protected override void OnDeath()
         {
             base.OnDeath();
+
+            TacticalGrid.CellSetCanCross(TacticalGrid.CellGetAtPosition(transform.position, true).index, true);
+            TacticalGrid.CellSetTag(TacticalGrid.CellGetAtPosition(transform.position, true), 0);
+
             if (CombatManager != null)
             {
                 CombatManager.OnAllyTurnStarted -= CharacterStats.TriggerAllStatus;
@@ -53,6 +64,11 @@ namespace NueGames.NueDeck.Scripts.Characters
             }
 
             Destroy(gameObject);
+        }
+
+        public virtual IEnumerator AttackRoutine()
+        {
+            yield return null;
         }
     }
 
@@ -62,7 +78,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] private string characterId;
         [SerializeField] private int maxHealth;
         [SerializeField] private int currentHealth;
-        
+
         public int MaxHealth
         {
             get => maxHealth;

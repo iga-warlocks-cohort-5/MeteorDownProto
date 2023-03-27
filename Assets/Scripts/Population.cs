@@ -1,21 +1,15 @@
 using NueGames.NueDeck.Scripts.Managers;
 using Assets.Scripts;
-using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Characters.Allies
 {
-    public class PowerStation : AllyBase
+    public class Population : AllyBase
     {
-        public int Grid => _grid;
-
-        [SerializeField]
-        private int _grid = 10;
-
         public override void BuildCharacter()
         {
             base.BuildCharacter();
 
-            cellTag = CellTags.PowerStation;
+            cellTag = CellTags.Population;
 
             if (UIManager != null)
                 CharacterStats.OnHealthChanged += UIManager.InformationCanvas.SetHealthText;
@@ -23,4 +17,3 @@ namespace NueGames.NueDeck.Scripts.Characters.Allies
         }
     }
 }
-

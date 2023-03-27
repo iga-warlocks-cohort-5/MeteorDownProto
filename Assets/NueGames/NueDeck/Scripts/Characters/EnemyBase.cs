@@ -39,6 +39,10 @@ namespace NueGames.NueDeck.Scripts.Characters
         protected override void OnDeath()
         {
             base.OnDeath();
+
+            TacticalGrid.CellSetCanCross(TacticalGrid.CellGetAtPosition(transform.position, true).index, true);
+            TacticalGrid.CellSetTag(TacticalGrid.CellGetAtPosition(transform.position, true), 0);
+
             CombatManager.OnAllyTurnStarted -= ShowNextAbility;
             CombatManager.OnEnemyTurnStarted -= CharacterStats.TriggerAllStatus;
 

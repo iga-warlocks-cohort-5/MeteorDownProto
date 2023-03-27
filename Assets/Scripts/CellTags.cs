@@ -1,9 +1,10 @@
 ﻿namespace Assets.Scripts
 {
-    enum CellTags
+    public enum CellTags
     {
         Population = 1,
         PowerStation = 2,
-        Alien = 3
+        Soldier = 3,
+        Alien = 4
     }
 }

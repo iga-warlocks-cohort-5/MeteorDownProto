@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2835035829204582326}
-  - component: {fileID: 2835035829204582327}
+  - component: {fileID: 1479554551400033087}
   - component: {fileID: 1757283783}
   - component: {fileID: 1757283782}
   m_Layer: 8
@@ -217,7 +217,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2835035829204582327
+--- !u!114 &1479554551400033087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,13 +226,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2835035829204582325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5449959a6647058155931d88dd8ced, type: 3}
+  m_Script: {fileID: 11500000, guid: e083a743f9be9ee4a995c72c282d810a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterType: 0
   textSpawnRoot: {fileID: 1754129541537614217}
   allyCanvas: {fileID: 7581544537521552487}
   allyCharacterData: {fileID: 11400000, guid: 4c4856731f3188f409c7bef9115f1647, type: 2}
+  TacticalGrid: {fileID: 0}
 --- !u!65 &1757283783
 BoxCollider:
   m_ObjectHideFlags: 0
