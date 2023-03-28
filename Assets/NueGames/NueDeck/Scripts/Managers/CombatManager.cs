@@ -25,6 +25,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private Grid2D tacticalGrid;
         [SerializeField] private Alien alienPrefab;
         [SerializeField] private Soldier soldierPrefab;
+        [SerializeField] private PowerStation powerStationPrefab;
         //[SerializeField] private GridSquare gridVisual;
         //[SerializeField] private GridMaster tacticalGrid;
         //[SerializeField] private PathFindingManager pathFinder;
@@ -104,38 +105,38 @@ namespace NueGames.NueDeck.Scripts.Managers
                 //    tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 0.0f, 0.0f, 0.5f));
                 //}
 
-                //switch (cell.tag)
-                //{
-                //    case (int)CellTags.Alien:
-                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 1.0f, 0.0f, 0.25f));
+                switch (cell.tag)
+                {
+                    case (int)CellTags.Alien:
+                        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 1.0f, 0.0f, 0.25f));
 
-                //        break;
+                        break;
 
-                //    case (int)CellTags.AlienPod:
-                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 1.0f, 1.0f, 0.25f));
+                    case (int)CellTags.AlienPod:
+                        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 1.0f, 1.0f, 0.25f));
 
-                //        break;
+                        break;
 
-                //    case (int)CellTags.Population:
-                //        tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 1.0f, 1.0f, 0.25f));
+                    case (int)CellTags.Population:
+                        tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 1.0f, 1.0f, 0.25f));
 
-                //        break;
+                        break;
 
-                //    case (int)CellTags.PowerStation:
-                //        tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 1.0f, 0.0f, 0.25f));
+                    case (int)CellTags.PowerStation:
+                        tacticalGrid.CellSetColor(cell.index, new Color(1.0f, 1.0f, 0.0f, 0.25f));
 
-                //        break;
+                        break;
 
-                //    case (int)CellTags.Soldier:
-                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 1.0f, 0.25f));
+                    case (int)CellTags.Soldier:
+                        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 1.0f, 0.25f));
 
-                //        break;
+                        break;
 
-                //    default:
-                //        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 0.0f, 0.0f));
+                    default:
+                        tacticalGrid.CellSetColor(cell.index, new Color(0.0f, 0.0f, 0.0f, 0.0f));
 
-                //        break;
-                //}
+                        break;
+                }
             }
         }
 
@@ -199,7 +200,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private void ExecuteUpkeep()
         {
-            foreach (AllyBase ally in GameManager.PersistentGameplayData.AllyList)
+            foreach (AllyBase ally in CurrentAlliesList)
             {
                 if (ally.GetType() == typeof(PowerStation))
                 {
@@ -307,6 +308,14 @@ namespace NueGames.NueDeck.Scripts.Managers
             CurrentAlliesList.Add(clone);
         }
 
+        public void SpawnPowerStation(Vector3 spawnPos)
+        {
+            var clone = Instantiate(powerStationPrefab, spawnPos, Quaternion.identity);
+            clone.TacticalGrid = tacticalGrid;
+            clone.BuildCharacter();
+            CurrentAlliesList.Add(clone);
+        }
+
         #endregion
 
         #region Private Methods
@@ -386,9 +395,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         #region Routines
         private IEnumerator EnemyTurnRoutine()
         {
-            var waitDelay = new WaitForSeconds(0.1f);
+            var waitDelay = new WaitForSeconds(0.2f);
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
 
             foreach (var currentEnemy in CurrentEnemiesList)
             {
@@ -399,6 +408,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             if (alienSpawnQueued)
             {
+                yield return new WaitForSeconds(0.5f);
                 SpawnAlien();
                 alienSpawnQueued = false;
             }
@@ -416,6 +426,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 yield return currentAlly.AttackRoutine();
                 yield return waitDelay;
             }
+
+            yield return new WaitForSeconds(0.2f);
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
                 CurrentCombatStateType = CombatStateType.EnemyTurn;

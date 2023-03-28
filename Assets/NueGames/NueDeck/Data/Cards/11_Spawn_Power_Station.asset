@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 10_Spawn_Solider
+  m_Name: 11_Spawn_Power_Station
   m_EditorClassIdentifier: 
-  id: 10_spawn_soldier
-  cardName: Spawn Soldier
-  manaCost: 2
-  cardSprite: {fileID: 21300000, guid: 02284fe64271ba949bf3ac093709ff33, type: 3}
+  id: 11_spawn_power_station
+  cardName: Spawn Power Station
+  manaCost: 3
+  cardSprite: {fileID: 21300000, guid: bc483edc466a57748bda66f828c2f6b5, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 10
+  - cardActionType: 11
     actionTargetType: 0
     actionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: Create a Soldier
+  - descriptionText: Create a Power Station
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

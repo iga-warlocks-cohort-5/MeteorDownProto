@@ -33,10 +33,3 @@ MonoBehaviour:
     - actionType: 5
       minActionValue: 1
       maxActionValue: 1
-  - name: Wait
-    intention: {fileID: 11400000, guid: b4fe5626c9c34d94f9fb3e0b24e6516e, type: 2}
-    hideActionValue: 1
-    actionList:
-    - actionType: 5
-      minActionValue: 1
-      maxActionValue: 1

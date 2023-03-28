@@ -12,6 +12,7 @@
         LifeSteal,
         Stun,
         Exhaust,
-        SpawnSoldier
+        SpawnSoldier,
+        SpawnPowerStation
     }
 }

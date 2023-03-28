@@ -39,6 +39,41 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
 
                 CombatManager.QueueAlienSpawn(spawnPos);
             }
+            else if (tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row + 1).tag == 0)
+            {
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row + 1).index);
+
+                CombatManager.QueueAlienSpawn(spawnPos);
+            }
+            else if (tacticalGrid.CellGetAtPosition(podCell.column, podCell.row + 1).tag == 0)
+            {
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(tacticalGrid.CellGetAtPosition(podCell.column, podCell.row + 1).index);
+
+                CombatManager.QueueAlienSpawn(spawnPos);
+            }
+            else if (tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row + 1).tag == 0)
+            {
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row + 1).index);
+
+                CombatManager.QueueAlienSpawn(spawnPos);
+            }
+            else if (tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row).tag == 0)
+            {
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row).index);
+
+                CombatManager.QueueAlienSpawn(spawnPos);
+            }
+            else if (tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row - 1).tag == 0)
+            {
+                //CombatManager.QueueAlienSpawn(podPosition, tacticalGrid.CellGetAtPosition(podCell.column + 1, podCell.row).index);
+                Vector3 spawnPos = tacticalGrid.CellGetPosition(tacticalGrid.CellGetAtPosition(podCell.column - 1, podCell.row - 1).index);
+
+                CombatManager.QueueAlienSpawn(spawnPos);
+            }
         }
     }
 }
